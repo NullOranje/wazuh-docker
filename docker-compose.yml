@@ -30,7 +30,7 @@ services:
       - filebeat_var:/var/lib/filebeat
 
   elasticsearch:
-    image: amazon/opendistro-for-elasticsearch:1.13.2
+    image: opensearchproject/opensearch:1.0.1
     hostname: elasticsearch
     restart: always
     ports:

@@ -20,19 +20,19 @@ fi
 if [[ ${ENABLED_SECURITY} == "false" || "x${ELASTICSEARCH_USERNAME}" == "x" || "x${ELASTICSEARCH_PASSWORD}" == "x" ]]; then
   auth=""
   # remove security plugin from kibana if elasticsearch is not using it either
-  /usr/share/kibana/bin/kibana-plugin remove opendistro_security
+  /usr/share/opensearch-dashboards/bin/opensearch-dashboards-plugin remove securityDashboards
 else
   export auth="--user ${ELASTICSEARCH_USERNAME}:${ELASTICSEARCH_PASSWORD} -k"
 fi
 
 until curl -XGET $el_url ${auth}; do
-  >&2 echo "Elastic is unavailable - sleeping"
+  >&2 echo "OpenSearch is unavailable - sleeping"
   sleep 5
 done
 
 sleep 2
 
->&2 echo "Elasticsearch is up."
+>&2 echo "OpenSearch is up."
 
 
 ##############################################################################
