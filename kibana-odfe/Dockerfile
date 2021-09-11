@@ -1,6 +1,6 @@
 # Wazuh Docker Copyright (C) 2021 Wazuh Inc. (License GPLv2)
 FROM opensearchproject/opensearch-dashboards:1.0.1
-USER kibana
+USER opensearch-dashboards
 ARG ELASTIC_VERSION=7.10.2
 ARG WAZUH_VERSION=4.2.0
 ARG WAZUH_APP_VERSION="${WAZUH_VERSION}_${ELASTIC_VERSION}"
